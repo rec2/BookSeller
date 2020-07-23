@@ -1,0 +1,28 @@
+body {
+        font-family: 'Ubuntu', sans-serif;
+        font-family: 'Montserrat', sans-serif;
+}
+
+
+.left-side{
+    background-color:#3282b8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.right-side {
+    text-align: center;
+}
+
+.nav {
+    color: white;
+    background-color: #0f4c75;
+    /* #3282b8;
+    #bbe1fa */
+}
+
+.book {
+    width: 70%;
+    margin: 80px auto;
+}

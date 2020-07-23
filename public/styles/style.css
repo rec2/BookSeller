@@ -1,0 +1,46 @@
+body {
+        font-family: 'Ubuntu', sans-serif;
+        font-family: 'Montserrat', sans-serif;
+}
+
+.left-side{
+    background-color:#eebb4d;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.words {
+    margin-top: 15%;
+    text-align: center;
+}
+
+.right-side {
+    text-align: center;
+}
+
+.nav {
+    color: white;
+    background-color: #0f4c75;
+    /* #3282b8;
+    #bbe1fa */
+}
+
+.book {
+    width: 70%;
+    margin: 80px auto;
+}
+
+.market {
+    margin: 0 auto;
+    background-color:#eebb4d;
+    height: 600px;
+    
+}
+
+.important {
+    color:red;
+}
+
+footer {
+    background-color: #0f4c75;
+    height: 100px;
+}

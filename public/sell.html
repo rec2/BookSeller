@@ -23,8 +23,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div>
-                    <h2>Enter in book information</h2>
-                    <form action="/market" method="post">
+                    <!-- <h2>Enter in book information</h2>
+                    <form action="/market" method="post" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="title">Title<span class="important">*</span></label>
@@ -63,8 +63,11 @@
                             <div class="form-group col-md-8">
                                 <label for="comments">Miscellaneous Information/Comments</label>
                                 <textarea name="comments" class="form-control" name="miscComments" rows="3"></textarea>
-                            </div>
-
+                            </div> -->
+                            <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
+                                <input type="file" name="myFile"  accept="image/*" />
+                                <input type="submit" value="Submit File" />
+                             </form>
                             <!-- <div class="form-group col-md-6">
                                 <label for="upload-image">Upload Image</label>
                                 <input type="file" class="form-control-file" id="book-image">

@@ -20,27 +20,14 @@
     </nav>
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 market">
-                <form>
-                    <label for="search">Enter Title: </label>
-                    <input type="search" name="searchBook">
-                    <button class="btn btn-primary btn-md" name="button">Search</button>
-                </form>
-            </div>
-            
-            <!-- Add books here -->
-            <div class="col-lg-6 market">
-                <div class="card" style="width: 18rem;">
-                    <!-- add loop for multiple entries  -->
-                    <!-- display 3 in a row -->
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"> <%= newBook[0].title %> </h5>
-                        <p class="card-text"><%= newBook[0].isbn %> <%= newBook[0].edition %> <%= newBook[0].publisher%> <%= newBook[0].course %></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <p><%= newBook[0].price %></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="row test main-row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card w-100 bg-light top-row">
+                        <img class="card-img-top resize" src="uploads/<%= test %>" alt="Card image">
+                        <div class="card-header">
+                            <button class="btn btn-secondary btn-sm">COM </button><button
+                                class="btn btn-secondary btn-sm">CONT</button>
+                        </div>
                     </div>
                 </div>
             </div>

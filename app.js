@@ -1,15 +1,57 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const port = 3000;
+const mongoose = require("mongoose");
+const multer = require('multer');
+
+
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.set("view engine", "ejs");
 
-app.use(express.static("public"));
+// set connection and/or new DB
+mongoose.connect("mongodb://localhost:27017/BookDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
-// market array
-let marketBooks = [];
+// SET STORAGE
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now())
+    }
+  })
+  var upload = multer({ storage: storage })
+// make schema
+const bookSchema = {
+    // authorName : {
+    //     type: String,
+    //     required: true   
+    // },
+    // title : {
+    //     type: String,
+    //     required: true   
+    // },
+    // isbn : {
+    //     type: Number,
+    //     required: true   
+    // },
+    // price : {
+    //     type: Number,
+    //     required: true   
+    // },
+    // edition : String,
+    // publisher : String
+    image : {}
+ 
+};
+
+
+// items model (db) 
+const Book = mongoose.model("Book", bookSchema);
 
 //route user to the pages
 app.get("/", (req, res) => {
@@ -25,11 +67,8 @@ app.get("/sell", (req, res) => {
 
 })
 
-// get information from form and paste it in the marketboard}
+app.post("/uploadfile", upload.single("myFile"), function(req,res) {
 
-
-app.post("/market", function(req,res) { 
-    
     const authorName = req.body.author;
     const title = req.body.title;
     const isbn = req.body.isbn;
@@ -37,26 +76,20 @@ app.post("/market", function(req,res) {
     const edition = req.body.edition;
     const publisher = req.body.publisher;
     const course = req.body.course;
+    const image = req.file;
     const comments = req.body.miscComments;
-
-    let book = {
-        authorName: authorName,
-        title: title,
-        isbn: isbn,
-        edition: edition,
-        publisher: publisher,
-        price: price,
-        course: course,
-        // comments = req.body.miscComments,
-        // make options for img
-    }
-
-    marketBooks.push(book);
+    const file = req.file;
     
+    if (!file) {
+        const error = new Error("Please upload a file");
+        error.httpStatusCode = 400;
+        return next(error);
+    } else {
+        res.render("market", {test : file.filename});
 
-    // send added item to market.ejs 
-    res.render("market", {newBook : marketBooks}); 
+    }
 })
+
 
 // set lisenter for port
 app.listen(3000, function () {

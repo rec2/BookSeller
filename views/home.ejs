@@ -13,9 +13,9 @@
 
 <body>
     <nav class="nav nav-pills nav-tabs justify-content-center">
-        <a class="nav-link nav-item active" href="index.html">Home</a>
-        <a class="nav-link nav-item" href="sell.html">Sell Your Books</a>
-        <a class="nav-link nav-item" href="market.html">MarketBoard</a>
+        <a class="nav-link nav-item active" href="/home.ejs">Home</a>
+        <a class="nav-link nav-item" href="/sell.ejs">Sell Your Books</a>
+        <a class="nav-link nav-item" href="/market.ejs">MarketBoard</a>
         <a class="nav-link nav-item" href="#">About Me</a>
     </nav>
     <div class="container">
@@ -29,20 +29,26 @@
                     <img class="book" src="images/stack-of-books.jpg">
                 </div>
             </div>
-            <div class="col-lg-6 right-side">
-                <h2>Get started</h2>
-  
+            <div class="col-lg-6">
+                <div class="words">
+                    <h2>Sell your book</h2>
                     <form action="/sell" method="GET">
                         <button class="btn-warning btn btn-lg" type="sumbit" name="button">Sell Now!</button>
                     </form>
-
+                </div>
+                <div class="words">
+                    <h2>Browse the market</h2>
+                    <form action="/market" method="GET">
+                        <button class="btn-warning btn btn-lg" type="sumbit" name="button">Sell Now!</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <h>Books For $ale</h4>
+                <h4>Books For $ale</h4>
             </div>
         </div>
     </footer>

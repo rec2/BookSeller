@@ -20,17 +20,14 @@
     </nav>
     <div class="container">
         <div class="row align-items-center">
-            <div class="row test main-row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="card w-100 bg-light top-row">
-                        <img class="card-img-top resize" src="uploads/<%= test %>" alt="Card image">
-                        <div class="card-header">
-                            <button class="btn btn-secondary btn-sm">COM </button><button
-                                class="btn btn-secondary btn-sm">CONT</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <form>
+                <label for="Search Title">Search: </label>
+                <input type="text">
+            </form>
+        </div>
+        <div class="row">
+            <%- include("new-book") %>
+            <hr>
         </div>
     </div>
     <footer>

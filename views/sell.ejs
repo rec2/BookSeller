@@ -1,88 +1,84 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Sell Your Books</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,600&family=Ubuntu:ital,wght@0,500;0,700;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-</head>
+<%- include("header") %>
 
 <body>
     <nav class="nav nav-pills nav-tabs justify-content-center">
-        <a class="nav-link nav-item" href="index.html">Home</a>
-        <a class="nav-link nav-item  active" href="sell.html">Sell Your Books</a>
-        <a class="nav-link nav-item" href="market.html">MarketBoard</a>
+        <a class="nav-link nav-item" href="home">Home</a>
+        <a class="nav-link nav-item active" href="sell">Sell Your Books</a>
+        <a class="nav-link nav-item" href="market">MarketBoard</a>
         <a class="nav-link nav-item" href="#">About Me</a>
     </nav>
 
     <div class="container left-side">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg">
                 <div>
                     <h2>Enter in book information</h2>
                     <form action="/uploadfile" enctype="multipart/form-data" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="title">Title<span class="important">*</span></label>
-                                <input type="text" class="form-control" id="book-title"  name="title" placeholder="Book Title" required>
+                                <input type="text" class="form-control" id="book-title" name="title"
+                                    placeholder="Book Title" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="author">Author<span class="important">*</span></label>
-                                <input type="text" class="form-control" id="bookAuthor" name="author" placeholder="A.A Cunningham" required>
+                                <label for="author">Author(s)<span class="important">*</span></label>
+                                <input type="text" class="form-control" id="bookAuthor" name="author"
+                                    placeholder="A.A Cunningham" required>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-3">
                                 <label for="ISBN">ISBN<span class="important">*</span></label>
-                                <input type="text" class="form-control" id="bookIsbn" name="isbn" placeholder="9780787996833" required>
+                                <input type="text" class="form-control" id="bookIsbn" name="isbn"
+                                    placeholder="9780787996833" required>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-2">
+                                <label for="edition">Edition</label>
+                                <input type="text" class="form-control" id="bookEdition" name="edition"
+                                    placeholder="4th" required>
+                            </div>
+                            <div class="form-group col-md-2">
                                 <label for="upload-image">Sale Price<span class="important">*</span></label>
-                                <input type="text" class="form-control" id="bookPrice" name="price" placeholder="$2.00" required>
+                                <input type="text" class="form-control" id="bookPrice" name="price" placeholder="$2.00"
+                                    required>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="edition">Edition</label>
-                                <input type="text" class="form-control" id="bookEdition" name="edition" placeholder="4th">
-                            </div>
                             <div class="form-group col-md-4">
                                 <label for="publisher">Publisher</label>
-                                <input type="text" class="form-control" id="publisherName" name="publisher" placeholder="Wiley">
+                                <input type="text" class="form-control" id="publisherName" name="publisher"
+                                    placeholder="Wiley">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="class">Used in</label>
-                                <input type="text" class="form-control" id="classroom" name="course" placeholder="CSC201">
+                                <label for="class">Course used in</label>
+                                <input type="text" class="form-control" id="classroom" name="course"
+                                    placeholder="CSC201">
+                            </div>
+                            <div class="form-group col-md-4 col-sm-3">
+                                <label for="fileUpload">Upload Image</label>
+                                <input type="file" name="imageFile" accept="image/*" />
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="comments">Miscellaneous Information/Comments</label>
-                                <textarea name="comments" class="form-control" name="miscComments" rows="3"></textarea>
-                            </div>
-                            <div class="form-group col-md-4 col-sm-3">
-                                <label for="fileUpload">Upload Image</label>
-                                <input type="file" name="imageFile"  accept="image/*" />
+                                <textarea name="comments" class="form-control" name="miscComments" rows="3"
+                                    placeholder="In fair condition, has great and easy tutorials, used very often in/outside of class"></textarea>
                             </div>
                         </div>
-                        <button class="btn btn-secondary mb-2" type="submit">Submit</button>
+                        <div class="form-row">
+                            <!-- center this button *** -->
+                            <div class="col-12">
+                                <button class="btn btn-secondary mb-2" type="submit">Submit</button>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                <h>Books For $ale</h4>
-            </div>
-        </div>
-    </footer>
+    <%- include("footer") %>
 </body>
 
 </html>

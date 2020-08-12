@@ -32,8 +32,12 @@ body {
     
 }
 
-.important {
-    color:red;
+input:optional {
+    background-color: rgb(205, 215, 235);
+}
+
+textarea:optional{
+    background-color: rgb(205, 215, 235);
 }
 
 footer {

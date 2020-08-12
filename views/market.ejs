@@ -1,42 +1,24 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Sell Your Books</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,600&family=Ubuntu:ital,wght@0,500;0,700;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-</head>
+<%- include("header") %>
 
 <body>
     <nav class="nav nav-pills nav-tabs justify-content-center">
-        <a class="nav-link nav-item" href="index.html">Home</a>
-        <a class="nav-link nav-item" href="sell.html">Sell Your Books</a>
-        <a class="nav-link nav-item active" href="market.html">MarketBoard</a>
+        <a class="nav-link nav-item" href="home">Home</a>
+        <a class="nav-link nav-item" href="sell">Sell Your Books</a>
+        <a class="nav-link nav-item active" href="market">MarketBoard</a>
         <a class="nav-link nav-item" href="#">About Me</a>
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row align-items-center">
             <form>
                 <label for="Search Title">Search: </label>
                 <input type="text">
             </form>
         </div>
-        <div class="row">
-            <%- include("new-book") %>
-            <hr>
-        </div>
     </div>
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                <h>Books For $ale</h4>
-            </div>
-        </div>
-    </footer>
+    <div class="container">
+        <%- include("new-book") %>
+    </div>
+    <%- include("footer") %>
 </body>
 
 </html>

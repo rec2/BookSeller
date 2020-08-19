@@ -1,15 +1,35 @@
-<% console.log(books.indexOf(false)); %>
+
 
 <% books.forEach(book =>  { %>
 
 <div class="row bg-light">
-    <div class="col-sm-3"><img class="img-fluid" src="uploads/<%= book.path %>" alt="Card image"></div>
-    <div class="col-sm-8">
-        <h4><%= book.title %></h4>
-        <h6>by <%= book.authorName%> </h6>
-        <h6>ISBN: <%= book.isbn %></h6>
-        <h6>Edition: <% book.edition %> </h6>
-        <h6>Edition: <% book.edition %> </h6>
+    <div class="col"><img class="img-fluid" src="uploads/<%= book.path %>" alt="Card image"></div>
+    <div class="col-sm-9">
+        <div class="row justify-content-between">
+            <div class="col book-details">
+                <h4><%= book.title %></h4>
+                <p>by <%= book.authorName %> </p>
+                <p>ISBN: <%= book.isbn %></p>
+                <ul class="test-list">
+                    <% if (book.publisher === "" && book.course === "") { %>
+                        <li>Edition: <i>not listed</i> </li>
+                        <li>Course: <i>not listed</i> </li>
+                    <% } else if (book.course === "" && book.publisher !== "") { %>
+                        <li>Edition: <%= book.edition %> </li>
+                        <li>Course: <i>not listed</i> </li> 
+                    <% } else { %>
+                        <li>Publisher: <%= book.publisher %> </li>
+                        <li>Edition: <%= book.edition %> </li>
+                        <li>Course: <%= book.course %> </li>
+                    <% } %> 
+                </ul>
+                <p> Uploaded:<%= book.date %> </p>
+            </div>
+            <div class="col-3">
+                <p>$<%= book.price %></p>
+                <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Buy</button>
+            </div>
+        </div>
     </div>
 </div>
 <hr>

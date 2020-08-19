@@ -55,12 +55,11 @@ const bookSchema = {
     },
     publisher: {
         type: String,
+    },
+    date : {
+        type: Date,
         required: true
     },
-    // date : { ***add this later
-    //     type: date,
-    //     required: true
-    // },
     path: String
 };
 
@@ -98,7 +97,7 @@ app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
     const edition = req.body.edition;
     const publisher = req.body.publisher;
     const course = req.body.course;
-    // const uploadDate = Date();
+    const uploadDate = new Date();
     // const comments = req.body.miscComments;
     const file = req.file;
  
@@ -117,6 +116,7 @@ app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
             edition: edition,
             publisher: publisher,
             course: course,
+            date : uploadDate,
             path : file.filename
         });
 

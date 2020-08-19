@@ -29,8 +29,23 @@ body {
     margin: 0 auto;
     background-color:#eebb4d;
     height: 600px;
-    
 }
+
+.book-details p {
+    margin: 0;
+}
+
+.test-list {
+    padding-left: 0px;
+
+}
+
+.test-list li{
+    display: inline;
+    padding-right: 10%;
+}
+
+
 
 input:optional {
     background-color: rgb(205, 215, 235);

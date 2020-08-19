@@ -1,35 +1,10 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const multer = require('multer');
+const passportLocalMongoose = require("passport-local-mongoose");
+const {configureApp, app} = require("./app-configure");
+const {connectDB, mongoose, upload } = require("./connect-mongo.js");
+const log = require("./log.js");
 
-const app = express();
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-app.use(express.static('public'));
-app.set("view engine", "ejs");
-
-// set connection and/or new DB
-mongoose.connect("mongodb://localhost:27017/booksDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-
-// SET STORAGE
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/uploads')
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now())
-    }
-})
-
-const upload = multer({
-    storage: storage
-})
+configureApp();
+connectDB();
 
 // make schema
 const bookSchema = {
@@ -56,7 +31,7 @@ const bookSchema = {
     publisher: {
         type: String,
     },
-    date : {
+    date: {
         type: Date,
         required: true
     },
@@ -79,9 +54,9 @@ app.get("/", (req, res) => {
 app.get("/market", (req, res) => {
     Book.find({}, function (err, books) {
         res.render("market", {
-          books: books
+            books: books
         });
-      });
+    });
 })
 
 app.get("/sell", (req, res) => {
@@ -100,13 +75,12 @@ app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
     const uploadDate = new Date();
     // const comments = req.body.miscComments;
     const file = req.file;
- 
+
     // ** If file is empty then assign default image as path:key **
 
-    if (!file) {
-        const error = new Error("Please upload a file");
+    if (false) {
         error.httpStatusCode = 400;
-        return next(error);
+        return log.error("Please upload a file!");
     } else {
         const book = new Book({
             authorName: authorName,
@@ -116,15 +90,15 @@ app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
             edition: edition,
             publisher: publisher,
             course: course,
-            date : uploadDate,
-            path : file.filename
+            date: uploadDate,
+            path: file.filename
         });
 
-        book.save(function(err){
-            if(!err){
+        book.save(function (err) {
+            if (!err) {
                 res.redirect("/market");
             } else {
-                console.log(err);
+                info.error(err);
             }
         });
     }
@@ -132,6 +106,4 @@ app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
 
 
 // set lisenter for port
-app.listen(3000, function () {
-    console.log("Server started on port ")
-})
+app.listen(3000, log.info("Server started on port " + 3000));

@@ -57,6 +57,10 @@ const bookSchema = {
         type: String,
         required: true
     },
+    // date : { ***add this later
+    //     type: date,
+    //     required: true
+    // },
     path: String
 };
 
@@ -94,6 +98,7 @@ app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
     const edition = req.body.edition;
     const publisher = req.body.publisher;
     const course = req.body.course;
+    // const uploadDate = Date();
     // const comments = req.body.miscComments;
     const file = req.file;
  

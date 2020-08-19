@@ -1,3 +1,5 @@
+<% console.log(books.indexOf(false)); %>
+
 <% books.forEach(book =>  { %>
 
 <div class="row bg-light">
@@ -5,15 +7,9 @@
     <div class="col-sm-8">
         <h4><%= book.title %></h4>
         <h6>by <%= book.authorName%> </h6>
-
-        <% if (book.edition != "") { %>
-            <h6>Edition: <%= book.edition %> | Publisher: <%=book.publisher %> | Course: <%= book.course %></h6>
-        <% } %>
-
         <h6>ISBN: <%= book.isbn %></h6>
-
-    
-
+        <h6>Edition: <% book.edition %> </h6>
+        <h6>Edition: <% book.edition %> </h6>
     </div>
 </div>
 <hr>

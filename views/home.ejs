@@ -1,40 +1,50 @@
 <%- include("header") %>
 
-<body>
-    <nav class="nav nav-pills nav-tabs justify-content-center">
-        <a class="nav-link nav-item active" href="home">Home</a>
-        <a class="nav-link nav-item" href="sell">Sell Your Books</a>
-        <a class="nav-link nav-item" href="market">MarketBoard</a>
-        <a class="nav-link nav-item" href="#">About Me</a>
-    </nav>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 left-side">
-                <div class="words">
-                    <h1 class="test">Sell or trade your unused textbooks! </h1>
-                    <h2>Collect money not dust!</h2>
+<div class="container-fluid test">
+  <div class="row">
+    <div class="jumbotron login-screen">
+      <h1 class="display-4"> Got old, useless textbooks?</h1>
+      <p class="display-5">Make them useful and sell 'em!</p>
+      <hr class="my-4">
+      <div class="row justify-content-center">
+        <div class="col-4 col-md-6">
+          <div class="card login-card">
+            <div class="card-body">
+              <!-- Makes POST request to /login route -->
+              <form action="/login" method="POST">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="username">
                 </div>
-                <div class="row">
-                    <img class="book" src="images/stack-of-books.jpg">
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password">
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="words">
-                    <h2>Sell your book</h2>
-                    <form action="/sell" method="GET">
-                        <button class="btn-warning btn btn-lg" type="sumbit" name="button">Sell Now!</button>
-                    </form>
-                </div>
-                <div class="words">
-                    <h2>Browse the market</h2>
-                    <form action="/market" method="GET">
-                        <button class="btn-warning btn btn-lg" type="sumbit" name="button">Shop Now!</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%- include("footer") %>
-</body>
+                <button type="submit" class="btn btn-dark">Login</button>
+              </form>
 
-</html>
+            </div>
+          </div>
+          <p>Not a member yet? <a href="/register">Sign-up</a></p>
+        </div>
+        <div class="col-4 col-md-6">
+          <h2>Browse the market</h2>
+          <a class="btn btn-lg btn-primary" href="/market" role="button">Shop</a>
+
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <a class="btn btn-block" href="/auth/google" role="button">
+                  <i class="fab fa-google"></i>
+                  Sign In with Google
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("footer") %>

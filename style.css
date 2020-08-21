@@ -1,28 +1,92 @@
 body {
-        font-family: 'Ubuntu', sans-serif;
-        font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
+/* Home Page */
 
-.left-side{
-    background-color:#3282b8;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+.test {
+    background-image: url("/images/bookshelf.jpg");
+    min-height: 700px;
+    opacity: .7;
+    width: 100%;
 }
 
-.right-side {
+.login-screen{
+    background-color: rgb(255, 254, 254);
+    margin: 40px auto 0px;
+    width: 80%;
+    height: 600px;
+    text-align: center;
+}
+
+.login-content {
+    height: 400px;
+}
+
+.login-card {
+    background-color: #5c7d92;
+    color: white;
+    max-height: 400px;
+}
+
+.words {
+    margin-top: 15%;
     text-align: center;
 }
 
 .nav {
-    color: white;
     background-color: #0f4c75;
-    /* #3282b8;
-    #bbe1fa */
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: rgb(122, 156, 194);
+    text-decoration: underline;
 }
 
 .book {
     width: 70%;
     margin: 80px auto;
+}
+
+
+/* Market */
+
+.market {
+    margin: 0 auto;
+    background-color: #eebb4d;
+    height: 600px;
+}
+
+.book-details p {
+    margin: 0;
+}
+
+.test-list {
+    padding-left: 0px;
+
+}
+
+.test-list li {
+    display: inline;
+    padding-right: 10%;
+}
+
+/* Sell Book */
+
+input:optional {
+    background-color: rgb(205, 215, 235);
+}
+
+textarea:optional {
+    background-color: rgb(205, 215, 235);
+}
+
+footer {
+    background-color: #0f4c75;
+    height: 100px;
 }

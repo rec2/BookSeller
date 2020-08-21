@@ -1,0 +1,53 @@
+<%- include("header") %>
+
+<div class="container-fluid test">
+  <div class="row">
+    <div class="jumbotron login-screen">
+      <div class="row justify-content-between login-content">
+        <div class="col-12 col-md-8 col-lg align-content-center">
+          <h1 class="display-4"> Got old, useless textbooks?</h1>
+          <p class="display-5">Make them useful and sell 'em!</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <button class="btn btn-primary" href="/auth/google">Sign in with Google</button>
+          <div class="card login-card">
+            <div class="card-body">
+              <!-- Makes POST request to /login route -->
+              <form action="/login" method="POST">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password">
+                </div>
+                <button type="submit" class="btn btn-dark">Login</button>
+              </form>
+            </div>
+          </div>
+          <p>Not a member yet? <a href="/register">Sign-up</a></p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4">
+
+  </div>
+  <div class="row">
+    <div class="col-4 col-md-6">
+      <h2>Browse the market</h2>
+      <a class="btn btn-lg btn-primary" href="/market" role="button">Shop</a>
+      <div class="card">
+        <div class="card-body">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<%- include("footer") %>

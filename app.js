@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {
     configureApp,
     app,
@@ -84,6 +85,17 @@ passport.use(new GoogleStrategy({
 app.get("/home", (req, res) => {
     res.render("home");
 })
+
+app.get('/logout', function (req, res) {
+    req.logout();
+    console.log("loggedout" + req.user);
+    res.redirect('/');
+});
+
+app.route("/welcome")
+    .get(function (req, res) {
+        res.render("welcome");
+    })
 // conbine the top with this one as 1 ****
 app.get("/", (req, res) => {
     res.render("home");
@@ -96,14 +108,15 @@ app.route("/register")
     })
     .post(function (req, res) {
         User.register({
-            username: req.body.username
+            username: req.body.username,
+            displayName: req.body.displayName
         }, req.body.password, function (err, user) {
             if (err) {
                 console.log(err);
                 res.redirect("register");
             } else {
                 passport.authenticate("local")(req, res, function () {
-                    res.render("sell")
+                    res.render("welcome");
                 });
             }
 
@@ -148,6 +161,13 @@ app.get("/sell", (req, res) => {
     res.render("sell");
 })
 
+//Clear list
+app.get("/clear", (req, res) => {
+
+    res.redirect("/");
+});
+
+
 // File upload
 app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
     const authorName = req.body.author;
@@ -181,7 +201,7 @@ app.post("/uploadfile", upload.single("imageFile"), function (req, res) {
             if (!err) {
                 res.redirect("/market");
             } else {
-                info.error(err);
+                console.log("erroor");
             }
         });
     }
@@ -193,15 +213,18 @@ app.get("/auth/google",
         scope: ["profile"]
     }))
 
-    app.get("/auth/google/market",
+app.get("/auth/google/market",
     passport.authenticate("google", {
         failureRedirect: "/login"
     }),
     function (req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/market');
+        res.redirect('/welcome');
+        return (res.redirect("/market"));
     });
 
 
-// set lisenter for port
-app.listen(3000, log.info("Server started on port " + 3000));
+
+app.listen(process.env.PORT || 8080, function () {
+    console.log(`Server start at ${process.env.PORT}`);
+});
